@@ -7,7 +7,7 @@
   "description": "Cross-platform desktop 3D asset workbench with procedural and optional AI generation.",
   "homepage": "https://meshforge.ai",
   "author": { "name": "MeshForge AI", "email": "support@meshforge.ai" },
-  "repository": { "type": "git", "url": "https://github.com/meshforge-ai/meshforge-ai.git" },
+  "repository": { "type": "git", "url": "https://github.com/bilel11111/meshforge-ai.git" },
   "type": "module",
   "main": "electron/main.cjs",
   "scripts": {
