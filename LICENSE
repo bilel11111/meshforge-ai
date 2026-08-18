@@ -1,0 +1,68 @@
+MESHFORGE AI — PROPRIETARY COMMERCIAL LICENSE
+
+Draft — review with qualified legal counsel before use
+Copyright (c) 2026 Bilel JM / MeshForge AI
+
+1. Scope
+
+This license governs the MeshForge AI source code, build configuration, documentation, and original assets supplied by the Licensor (the "Software"). A purchaser receives rights only after a valid order, invoice, or separate commercial agreement identifies the purchaser, licensed edition, permitted number of seats or installations, and license term.
+
+2. Grant of license
+
+Subject to payment of the applicable fees and compliance with this license, the Licensor grants the purchasing individual or legal entity (the "Licensee") a limited, non-exclusive, non-transferable, non-sublicensable license to:
+
+(a) install and run the object-code build of the Software on the number of devices or user accounts specified in the order;
+(b) use the Software for the Licensee's internal business or personal purposes;
+(c) make reasonable internal configuration and source modifications necessary for the Licensee's permitted use; and
+(d) allow employees and contractors bound by written confidentiality obligations to use the Software on the Licensee's behalf.
+
+3. Restrictions
+
+Unless the Licensor gives prior written permission, the Licensee must not:
+
+(a) sell, rent, lease, lend, sublicense, publish, or redistribute the Software or any derivative build;
+(b) place the Software source code or a derivative work in a public repository, public package registry, public download area, or open-source distribution;
+(c) provide the Software as a hosted service, bureau service, or platform for third parties when the order does not expressly permit that use;
+(d) remove copyright, trademark, license, or attribution notices;
+(e) share credentials, license keys, downloads, or private source access with an unlicensed party; or
+(f) use MeshForge branding in a way that suggests endorsement or ownership by the Licensor without written permission.
+
+Nothing in this section prohibits an activity that applicable law cannot prohibit, such as an applicable statutory right to reverse engineer for interoperability. Where such a right applies, the Licensee must limit the activity to the legally permitted purpose and must not disclose proprietary information unnecessarily.
+
+4. Ownership
+
+The Software is licensed, not sold. The Licensor retains all right, title, and interest in the original Software, including intellectual-property rights not expressly granted in this license. No rights are granted by implication, exhaustion, estoppel, or otherwise.
+
+5. Third-party components and services
+
+The Software includes or depends on third-party components that remain subject to their own licenses. Those licenses are listed in THIRD_PARTY_NOTICES.md and must be preserved in any permitted distribution. Gemini, Ollama, vLLM, LM Studio, model weights, hosting providers, and other external services are separate services with their own terms, fees, quotas, and privacy policies. This license does not grant rights to those services or to any model provider's content.
+
+6. Fees, support, and updates
+
+Fees, taxes, payment timing, support level, update entitlement, and renewal terms are defined by the applicable order or commercial agreement. Unless expressly included in that agreement, support, custom development, cloud hosting, model-provider charges, and future updates are not included.
+
+7. Confidentiality
+
+Non-public source code, credentials, license keys, product roadmaps, and technical materials supplied under a private commercial agreement are confidential information. The receiving party must protect them using at least reasonable care and must not disclose them except to authorized personnel who need access for the licensed use.
+
+8. Warranty disclaimer
+
+To the maximum extent permitted by law, the Software is provided "AS IS" and without warranties of any kind, whether express, implied, statutory, or otherwise, including warranties of merchantability, fitness for a particular purpose, title, non-infringement, availability, accuracy, or uninterrupted operation. AI-generated output, imported models, exported files, and third-party services may contain errors or require review.
+
+9. Limitation of liability
+
+To the maximum extent permitted by law, the Licensor will not be liable for indirect, incidental, special, consequential, exemplary, or punitive damages, or for lost profits, revenue, data, business, or goodwill, arising from or related to the Software or this license. The Licensor's aggregate liability will not exceed the fees paid for the Software during the twelve months preceding the event giving rise to the claim, except to the extent liability cannot lawfully be limited.
+
+10. Termination
+
+The license terminates automatically if the Licensee materially breaches it and fails to cure the breach within the period required by applicable law or the commercial agreement. On termination, the Licensee must stop using the Software, remove unlicensed copies, and return or securely destroy confidential source materials, except where retention is required by law.
+
+11. Contributions and changes
+
+No contribution, issue, pull request, or other submission grants rights to the public or changes this license unless the Licensor expressly accepts it under a written agreement.
+
+12. Governing terms
+
+The governing law, venue, and dispute process should be specified in the applicable commercial agreement. If this license conflicts with a signed commercial agreement, the signed agreement controls for that transaction.
+
+For sales, support, and licensing inquiries: support@meshforge.ai

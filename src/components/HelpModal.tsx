@@ -18,7 +18,7 @@ export const HelpModal: React.FC<HelpModalProps> = ({ isOpen, onClose }) => {
         <div className="flex items-center justify-between px-5 py-3.5 border-b border-slate-800 bg-[#161c28]">
           <div className="flex items-center gap-2">
             <HelpCircle className="w-4 h-4 text-sky-400" />
-            <h3 className="font-semibold text-slate-200 text-sm">Forge 3D GenStudio Guide</h3>
+            <h3 className="font-semibold text-slate-200 text-sm">MeshForge AI Guide</h3>
           </div>
           <button
             onClick={onClose}

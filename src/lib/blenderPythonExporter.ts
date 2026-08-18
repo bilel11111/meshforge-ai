@@ -195,7 +195,7 @@ export function generateBlenderPythonScript(
 
   return `"""
 ==============================================================================
-3D GenStudio - Automated Blender Python (bpy) Asset Generator
+MeshForge AI - Automated Blender Python (bpy) Asset Generator
 Model: ${modelTitle}
 Generated on: ${new Date().toISOString()}
 
@@ -392,7 +392,7 @@ export function generateBatchBlenderAssemblyScript(
 
   return `"""
 ==============================================================================
-3D GenStudio - Batch Assembly Blender Python (bpy) Generator
+MeshForge AI - Batch Assembly Blender Python (bpy) Generator
 Assembly: ${assemblyName}
 Total Models: ${models.length}
 Total Meshes: ${totalMeshCount}

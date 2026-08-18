@@ -20,7 +20,7 @@ function getGeminiClient(): GoogleGenAI {
       apiKey,
       httpOptions: {
         headers: {
-          'User-Agent': 'aistudio-build',
+          'User-Agent': 'MeshForge-AI/1.0',
         },
       },
     });
@@ -501,7 +501,7 @@ async function startServer() {
   }
 
   app.listen(PORT, '127.0.0.1', () => {
-    console.log(`3D GenStudio Server running on http://localhost:${PORT}`);
+    console.log(`MeshForge AI server running on http://localhost:${PORT}`);
   });
 }
 

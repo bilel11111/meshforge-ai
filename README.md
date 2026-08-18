@@ -1,88 +1,91 @@
 # MeshForge AI
 
-MeshForge AI est un **atelier desktop de création d’assets 3D** pour Linux et Windows. La reconstruction conserve le moteur Three.js et les générateurs procéduraux du projet fourni, tout en ajoutant un shell Electron, une interface de studio cross-platform et des dialogues de fichiers natifs.
+**MeshForge AI** is a cross-platform desktop 3D asset workbench for Windows and Linux. It combines procedural mesh generation, optional cloud or local model integrations, PBR texture synthesis, a live Three.js viewport, and export workflows for GLB, OBJ, STL, PNG snapshots, and Blender Python.
 
-> Le mode procédural fonctionne localement sans clé API. Les intégrations Gemini, Ollama, vLLM et LM Studio sont optionnelles et l’application retombe automatiquement sur le moteur local si un service distant n’est pas disponible.
+> **Commercial product:** the source repository is private. A valid commercial order is required before any customer receives source access, a license key, or a compiled distribution.
 
-## Fonctionnalités disponibles
+## Product overview
 
-| Domaine | Fonctionnalités opérationnelles |
+MeshForge AI is designed for creators, technical artists, game developers, product teams, and studios that need a practical 3D asset workflow without committing every operation to a cloud service.
+
+| Area | Product capabilities |
 |---|---|
-| Assets | Arbre d’asset, presets, ajout de sous-composants et import GLB/GLTF/OBJ/STL |
-| Génération | Génération text-to-3D via Gemini ou modèle local, avec fallback procédural |
-| Image to 3D | Reconstruction multimodale optionnelle et relief photométrique local |
-| Edition | Déformations twist, taper, bend, noise, spherify, extrude-spikes et subdivide |
-| Matériaux | Génération de cartes PBR procédurales et réglages de couleur, rugosité, métal et émission |
-| Viewport | Orbit controls, vues ISO/front/top/side, grille, axes, wireframe, autorotation et snapshot |
-| Export | GLB, OBJ, STL, snapshot PNG et script Python Blender |
-| Desktop | Fenêtre Electron, titre-barre cross-platform, contrôles de fenêtre et sauvegarde via dialogue natif |
+| Asset creation | Procedural mesh generation, presets, asset tree, sub-components, and model import |
+| AI-assisted workflows | Optional Gemini generation, image-to-3D assistance, and local Ollama/vLLM/LM Studio integrations |
+| Editing | Twist, taper, bend, noise, spherify, extrude-spikes, and subdivision operations |
+| Materials | Procedural PBR maps and controls for color, roughness, metalness, emission, and related properties |
+| Viewport | Orbit controls, orthographic views, grid, axes, wireframe, auto-rotation, and snapshots |
+| Export | GLB, OBJ, STL, PNG snapshots, and Blender Python scripts |
+| Desktop delivery | Electron application with native file dialogs and Windows/Linux packaging |
 
-## Développement local
+## Commercial editions
 
-Les prérequis sont Node.js 20 ou supérieur et npm. Installez les dépendances puis démarrez le serveur de développement :
+The recommended sales model is a **per-seat or per-installation commercial license**. The exact number of seats, permitted devices, support level, update period, and pricing should be written in the buyer's order or commercial agreement.
+
+The repository's [`LICENSE`](LICENSE) is a working proprietary-license draft. It does not grant public download rights and should be reviewed by qualified legal counsel before customer use. Third-party packages remain subject to their own licenses; see [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
+
+## Distribution strategy
+
+Keep the full source code and release artifacts in this private repository. For a public CV or portfolio, create a separate showcase repository containing only the product description, screenshots, a feature list, a short demo video, requirements, and a sales contact. Do not publish this source repository if the goal is to sell the implementation.
+
+A public GitHub repository can be viewed, cloned, and downloaded. GitHub cannot provide a public-but-non-downloadable source repository.
+
+## Runtime options
+
+The procedural engine works locally without a cloud API key. Optional integrations can use Gemini or a locally detected Ollama, vLLM, or LM Studio endpoint. Cloud providers, model weights, quotas, hosting, and generated output are separate from the MeshForge AI license and remain subject to their respective terms.
+
+## Development
+
+The current development workflow requires Node.js 20 or later and npm:
 
 ```bash
 npm install
 npm run dev
 ```
 
-L’application navigateur est ensuite disponible sur `http://localhost:3000`. Pour démarrer directement la version desktop Electron en mode développement :
+The browser development server runs on `http://localhost:3000`. To launch the Electron development shell:
 
 ```bash
 npm run dev:desktop
 ```
 
-Les appels Gemini nécessitent une variable `GEMINI_API_KEY` dans un fichier `.env` ou `.env.local`. Sans cette variable, la génération procédurale locale reste disponible. Les services locaux sont détectés sur les endpoints Ollama `11434`, vLLM `8000` et LM Studio `1234`.
+Copy `.env.example` to `.env` only when using optional configuration. Never commit API keys, private endpoints, credentials, or customer data.
 
-## Compilation et packaging
+## Build and packaging
 
-La vérification TypeScript et le build de production sont lancés avec :
+Run the type check and production build with:
 
 ```bash
 npm run lint
 npm run build
 ```
 
-Sur Linux, les installateurs AppImage et Debian sont générés avec :
+Create Linux packages with:
 
 ```bash
 npm run desktop:linux
 ```
 
-Sur Windows, l’installateur NSIS est généré avec :
+Create a Windows NSIS installer in a Windows or Wine-capable packaging environment with:
 
 ```bash
 npm run desktop:windows
 ```
 
-Depuis Linux, si Wine n’est pas disponible pour finaliser NSIS, le build Windows portable peut être créé sous forme d’archive ZIP :
+Release artifacts should be signed, checksummed, and distributed through a controlled customer channel. The current project documentation records known packaging limitations in [`docs/BUILD_GUIDE.md`](docs/BUILD_GUIDE.md).
 
-```bash
-npm run build
-./node_modules/.bin/electron-builder --win dir
-cd dist && zip -qr MeshForge-AI-1.0.0-win-x64.zip win-unpacked
-```
+## Architecture
 
-Le dossier `win-unpacked` contient alors `MeshForge AI.exe` et toutes les ressources nécessaires à l’exécution sur Windows x64.
+The Electron main process starts the local Express service and opens the renderer. The preload bridge uses context isolation and exposes only the native operations needed by the application. The renderer is built with React, Vite, Tailwind CSS, and Three.js. The server layer coordinates optional Gemini and local-model integrations with procedural fallbacks.
 
-## Architecture desktop
+## Security and customer responsibilities
 
-Le renderer React/Vite reste isolé du système avec `contextIsolation` activé et `nodeIntegration` désactivé. Le processus principal Electron lance le serveur Express local, attend son endpoint `/api/health`, puis ouvre le renderer. Le preload n’expose que les opérations nécessaires : ouvrir un modèle, sauvegarder un fichier, lire les chemins utilisateur et contrôler la fenêtre.
+API keys belong in the customer's local environment or approved secret-management system. Do not embed provider keys in the renderer, commit them to Git, or ship one customer's credentials to another customer. Customers should review imported assets, generated code, model outputs, and exported files before using them in production.
 
-En mode production installé, le serveur est lancé depuis `dist/server.cjs` décompressé par Electron Builder, tandis que le renderer est servi depuis les assets Vite packagés. Cette séparation permet de conserver un mode navigateur simple pour le développement et un mode desktop natif pour les utilisateurs finaux.
+## Support and sales
 
-## Structure utile
+For commercial licensing, private source access, compiled installers, custom integrations, or support inquiries, contact **support@meshforge.ai**. Before sale, define the customer's license scope, delivery format, support period, update entitlement, refund terms, and applicable jurisdiction in a signed order or agreement.
 
-```text
-electron/main.cjs       Processus principal, fenêtre et serveur local
-electron/preload.cjs    Bridge IPC sécurisé
-server.ts               API locale Gemini / modèles locaux / fallback
-src/App.tsx             État applicatif et routage des panneaux
-src/components/         Interface et viewport Three.js
-src/lib/                Générateurs, importeurs, exporteurs et texture baker
-dist/                   Build renderer, serveur et artefacts packaging
-```
+## Author
 
-## Limites connues
-
-Les installateurs ne sont pas signés numériquement. La génération Windows NSIS nécessite donc une validation Windows ou un environnement de packaging avec Wine correctement initialisé ; une version Windows portable ZIP est fournie par le build Linux. Les appels IA cloud dépendent des quotas et de la disponibilité du fournisseur, mais les opérations locales principales ne nécessitent aucun service externe.
+**Bilel JM / MeshForge AI**

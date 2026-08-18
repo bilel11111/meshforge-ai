@@ -4,6 +4,7 @@
   "desktopName": "meshforge-ai",
   "version": "1.0.0",
   "private": true,
+  "license": "SEE LICENSE",
   "description": "Cross-platform desktop 3D asset workbench with procedural and optional AI generation.",
   "homepage": "https://meshforge.ai",
   "author": { "name": "MeshForge AI", "email": "support@meshforge.ai" },
