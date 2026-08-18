@@ -1,0 +1,83 @@
+{
+  "name": "meshforge-ai",
+  "productName": "MeshForge AI",
+  "desktopName": "meshforge-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cross-platform desktop 3D asset workbench with procedural and optional AI generation.",
+  "homepage": "https://meshforge.ai",
+  "author": { "name": "MeshForge AI", "email": "support@meshforge.ai" },
+  "repository": { "type": "git", "url": "https://github.com/meshforge-ai/meshforge-ai.git" },
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "tsx server.ts",
+    "dev:desktop": "concurrently -k \"npm run dev\" \"wait-on http://localhost:3000/api/health && electron . --dev\"",
+    "build:renderer": "vite build",
+    "build:server": "esbuild server.ts --bundle --platform=node --format=cjs --packages=bundle --sourcemap --outfile=dist/server.cjs",
+    "build": "npm run build:renderer && npm run build:server",
+    "start": "NODE_ENV=production node dist/server.cjs",
+    "desktop": "npm run build && electron-builder",
+    "desktop:linux": "npm run build && electron-builder --linux AppImage deb",
+    "desktop:windows": "npm run build && electron-builder --win nsis",
+    "clean": "rm -rf dist release server.js",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@google/genai": "^2.4.0",
+    "@tailwindcss/vite": "^4.1.14",
+    "@vitejs/plugin-react": "^5.0.4",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "lucide-react": "^0.546.0",
+    "motion": "^12.23.24",
+    "react": "^19.0.1",
+    "react-dom": "^19.0.1",
+    "three": "^0.185.1",
+    "vite": "^6.2.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.14.0",
+    "@types/three": "^0.185.4",
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^9.2.1",
+    "electron": "^37.2.6",
+    "electron-builder": "^26.0.12",
+    "esbuild": "^0.25.0",
+    "tailwindcss": "^4.1.14",
+    "tsx": "^4.21.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.3",
+    "wait-on": "^8.0.4"
+  },
+  "build": {
+    "appId": "com.meshforge.ai",
+    "productName": "MeshForge AI",
+    "asar": true,
+    "asarUnpack": ["dist/server.cjs", "dist/server.cjs.map"],
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "extraMetadata": {
+      "main": "electron/main.cjs"
+    },
+    "linux": {
+      "target": ["AppImage", "deb"],
+      "category": "Graphics",
+      "syncDesktopName": true
+    },
+    "win": {
+      "target": ["nsis"],
+      "artifactName": "MeshForge-AI-${version}-Setup.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "MeshForge AI"
+    }
+  }
+}

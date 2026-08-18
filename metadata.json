@@ -1,0 +1,6 @@
+{
+  "name": "3D GenStudio AI",
+  "description": "Local & Cloud AI-powered 3D Model Generator, Updater, and Texture Synthesizer with Ollama/vLLM/LM Studio auto-discovery, live Three.js viewport, Blender Python (bpy) export, and animated export progress feedback.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

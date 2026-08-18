@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #080c14;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+body { background: #080c14; color: #e5edf9; }
+button, input, textarea, select { font: inherit; }
+button { -webkit-app-region: no-drag; }
+
+.meshforge-titlebar {
+  background: linear-gradient(180deg, rgba(18, 25, 39, .98), rgba(12, 17, 28, .98));
+  border-bottom: 1px solid rgba(71, 85, 105, .38);
+  -webkit-app-region: drag;
+}
+.meshforge-brand-mark {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  color: #dffbff;
+  border: 1px solid rgba(103, 232, 249, .55);
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(14, 116, 144, .95), rgba(79, 70, 229, .92));
+  box-shadow: 0 0 22px rgba(34, 211, 238, .2);
+}
+.meshforge-menu-item { padding: 5px 8px; border-radius: 5px; cursor: pointer; transition: .15s ease; }
+.meshforge-menu-item:hover { color: #e2e8f0; background: rgba(51, 65, 85, .45); }
+.meshforge-live-dot { width: 6px; height: 6px; display: inline-block; border-radius: 99px; background: #34d399; box-shadow: 0 0 9px rgba(52, 211, 153, .9); }
+.meshforge-window-actions { display: flex; align-items: center; gap: 2px; }
+.meshforge-window-actions button { width: 30px; height: 26px; padding: 0; color: #94a3b8; border: 0; border-radius: 5px; background: transparent; cursor: pointer; line-height: 1; }
+.meshforge-window-actions button:hover { color: #f8fafc; background: rgba(71, 85, 105, .45); }
+.meshforge-window-actions button.close:hover { color: #fff; background: #dc2626; }
+.meshforge-activity-rail { width: 56px; background: linear-gradient(180deg, rgba(18, 26, 40, .98), rgba(11, 16, 27, .98)); }
+.meshforge-activity-rail > div { transition: transform .15s ease, background .15s ease, box-shadow .15s ease; }
+.meshforge-activity-rail > div:hover { transform: translateY(-1px); }
+.meshforge-main-window { min-width: 0; }
+.meshforge-main-window > header { background: linear-gradient(180deg, rgba(19, 29, 45, .98), rgba(14, 21, 34, .98)) !important; border-bottom-color: rgba(71, 85, 105, .38) !important; }
+
+/* Make the legacy panels feel like one cohesive desktop workbench. */
+.meshforge-app .border-slate-800\/80 { border-color: rgba(51, 65, 85, .52); }
+.meshforge-app .bg-\[\#12161f\] { background: #111a29; }
+.meshforge-app .bg-\[\#0a0d14\] { background: radial-gradient(circle at 52% 35%, #111c2d 0%, #080d17 58%, #060a12 100%); }
+.meshforge-app .bg-\[\#161a24\]\/90 { background: rgba(18, 26, 40, .98); }
+.meshforge-app .rounded-2xl { border-radius: 12px; }
+.meshforge-app textarea, .meshforge-app input, .meshforge-app select { border-color: rgba(71, 85, 105, .58); }
+.meshforge-app textarea:focus, .meshforge-app input:focus, .meshforge-app select:focus { outline: 1px solid rgba(34, 211, 238, .7); outline-offset: 0; }
+.meshforge-app ::-webkit-scrollbar { width: 8px; height: 8px; }
+.meshforge-app ::-webkit-scrollbar-track { background: transparent; }
+.meshforge-app ::-webkit-scrollbar-thumb { background: rgba(71, 85, 105, .65); border-radius: 99px; }
+.meshforge-app ::-webkit-scrollbar-thumb:hover { background: rgba(100, 116, 139, .85); }
+
+@media (max-width: 900px) {
+  .meshforge-titlebar { padding-left: 10px; padding-right: 10px; }
+  .meshforge-menu-item { display: none; }
+}
