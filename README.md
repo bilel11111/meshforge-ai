@@ -84,7 +84,7 @@ API keys belong in the customer's local environment or approved secret-managemen
 
 ## Support and sales
 
-For commercial licensing, private source access, compiled installers, custom integrations, or support inquiries, contact **support@meshforge.ai**. Before sale, define the customer's license scope, delivery format, support period, update entitlement, refund terms, and applicable jurisdiction in a signed order or agreement.
+For commercial licensing, private source access, compiled installers, custom integrations, or support inquiries, contact **bileljammazi6@gmail.com**. Before sale, define the customer's license scope, delivery format, support period, update entitlement, refund terms, and applicable jurisdiction in a signed order or agreement.
 
 ## Author
 
