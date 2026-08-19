@@ -1,6 +1,6 @@
-# MeshForge AI
+# MeshForge AI — Electron 3D Asset Workbench
 
-**MeshForge AI** is a cross-platform desktop 3D asset workbench for Windows and Linux. It combines procedural mesh generation, optional cloud or local model integrations, PBR texture synthesis, a live Three.js viewport, and export workflows for GLB, OBJ, STL, PNG snapshots, and Blender Python.
+MeshForge AI is a cross-platform Windows and Linux desktop 3D asset workbench built with Electron and Three.js. It combines procedural mesh generation, optional cloud or local model integrations, PBR material synthesis, a live 3D viewport, and export workflows for GLB, OBJ, STL, PNG snapshots, and Blender Python.
 
 > **Commercial product:** the source repository is private. A valid commercial order is required before any customer receives source access, a license key, or a compiled distribution.
 
